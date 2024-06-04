@@ -5,6 +5,8 @@ import { PageContainer } from './components/PageContainer/PageContainer';
 
 import './App.css'
 
+import PropTypes from 'prop-types';
+
 function App() {
   const [count, setCount] = useState(0)
 
