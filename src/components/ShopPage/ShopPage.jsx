@@ -1,13 +1,13 @@
 
 
-export const HomePage = () => {
+export const ShopPage = () => {
 
 
 
     return (
         <>
             <div>
-                We are Home
+                You can shop here
             </div>
         </>
     )

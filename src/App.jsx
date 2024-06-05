@@ -6,20 +6,31 @@ import { PageContainer } from './components/PageContainer/PageContainer';
 import './App.css'
 
 import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+const App = () => {
+  // const [count, setCount] = useState(0)
+
+  // Cart amount state will have to be lifted up here, so that item details
+  // can be passed to Cart page
+
+  // can trigger
 
   return (
-    <>
+    
+    <> 
       <NavBar 
       
       />
-      <PageContainer 
+      {/* <PageContainer 
       
-      />
-        
+      /> */}
+      <Outlet />
+      
     </>
+    
   )
 }
 
