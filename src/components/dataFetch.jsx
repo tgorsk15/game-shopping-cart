@@ -12,7 +12,14 @@ export const useGameData = () => {
         const url = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a';
         const url2 = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a&page=2';
 
-        const mergedData = {}
+        // let gameData;
+        // let gameData2;
+        // let dataLoaded = false
+        function handleMergeData(gameData, gameData2) {
+            const mergedData = gameData.concat(gameData2)
+            console.log(mergedData)
+        }
+        
 
         const fetchData = async () => {
             try {
@@ -22,28 +29,33 @@ export const useGameData = () => {
                     throw new Error('Request failed');
                 }
 
-                const gameData = await response.json();
+                const tempData = await response.json();
+                const gameData = tempData.results
                 console.log(gameData)
-                
+
+                fetchData2(gameData);
 
             } catch(error) {
                 console.log(error)
                 setError(error)
             }
 
-            fetchData2();
+            
         }
 
-        const fetchData2 = async () => {
+        const fetchData2 = async (gameData) => {
             try {
                 const response2 = await fetch(url2, {mode: 'cors'})
 
-                if (!response2.ok ) {
+                if (!response2.ok) {
                     throw new Error('Request failed');
                 }
 
-                const gameData2 = await response2.json();
+                const tempData2 = await response2.json();
+                const gameData2 = tempData2.results
                 console.log(gameData2)
+
+                handleMergeData(gameData, gameData2)
                 
 
             } catch(error) {
@@ -53,11 +65,19 @@ export const useGameData = () => {
                 setLoading(false)
             }
 
-            // mergeGameData()
+            
         }
 
 
         fetchData();
+        // console.log(gameData)
+        // console.log(gameData2)
+        
+        // if (dataLoaded === false) {
+        //     const mergedData = gameData.concat(gameData2)
+        //     console.log(mergedData)
+        // }
+        
     }, [])
 
     
