@@ -6,19 +6,15 @@ export const useGameData = () => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    // function mergeGameData()
+    function handleMergeData(gameData, gameData2) {
+        const mergedData = gameData.concat(gameData2)
+        console.log(mergedData)
+        setInitialData(mergedData)
+    }
 
     useEffect(() => {
         const url = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a';
-        const url2 = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a&page=2';
-
-        // let gameData;
-        // let gameData2;
-        // let dataLoaded = false
-        function handleMergeData(gameData, gameData2) {
-            const mergedData = gameData.concat(gameData2)
-            console.log(mergedData)
-        }
+        const url2 = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a&page=2';      
         
 
         const fetchData = async () => {

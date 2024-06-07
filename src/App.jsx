@@ -17,7 +17,11 @@ const App = () => {
   // Cart amount state will have to be lifted up here, so that item details
   // can be passed to Cart page
 
-  // can trigger
+  console.log(initialData)
+  console.log(error)
+  console.log(loading)
+
+  // if (loading) return 
 
   return (
 
@@ -29,7 +33,8 @@ const App = () => {
       {/* <PageContainer 
       
       /> */}
-      <Outlet />
+      {loading ? <h1>Loading ...</h1> : (<Outlet />)}
+      
       
     </>
     
