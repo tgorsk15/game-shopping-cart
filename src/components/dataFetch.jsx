@@ -66,17 +66,8 @@ export const useGameData = () => {
 
 
         fetchData();
-        // console.log(gameData)
-        // console.log(gameData2)
-        
-        // if (dataLoaded === false) {
-        //     const mergedData = gameData.concat(gameData2)
-        //     console.log(mergedData)
-        // }
         
     }, [])
-
-    
 
         return { initialData, error, loading }
 

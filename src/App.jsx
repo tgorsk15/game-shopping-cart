@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { NavBar } from './components/NavBar/NavBar';
 import { PageContainer } from './components/PageContainer/PageContainer';
@@ -16,12 +16,20 @@ const App = () => {
 
   // Cart amount state will have to be lifted up here, so that item details
   // can be passed to Cart page
+  const [gameData, setGameData ] = useState([])
 
-  console.log(initialData)
+  useEffect(() => {
+    if (initialData) {
+      setGameData(initialData);
+    }
+    // console.log(gameData)
+  }, [initialData]);
+
+  console.log(gameData)
   console.log(error)
   console.log(loading)
 
-  // if (loading) return 
+  if (error) return <h2>A network error has occured</h2>
 
   return (
 
@@ -33,7 +41,10 @@ const App = () => {
       {/* <PageContainer 
       
       /> */}
-      {loading ? <h1>Loading ...</h1> : (<Outlet />)}
+      {loading ? <h1>Loading ...</h1> 
+      : (<Outlet context={{
+          gameData
+        }}/>)}
       
       
     </>

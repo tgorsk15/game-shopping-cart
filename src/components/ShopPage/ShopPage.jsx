@@ -1,7 +1,10 @@
+import { useOutletContext } from "react-router-dom"
 
 
 export const ShopPage = () => {
+    const { gameData } = useOutletContext()
 
+    console.log(gameData)
 
 
     return (
