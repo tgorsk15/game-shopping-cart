@@ -7,11 +7,12 @@ import './App.css'
 
 import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
+import { useGameData } from './components/dataFetch';
 
 
 
 const App = () => {
-  // const [count, setCount] = useState(0)
+  const { initialData, error, loading } = useGameData();
 
   // Cart amount state will have to be lifted up here, so that item details
   // can be passed to Cart page
@@ -19,6 +20,7 @@ const App = () => {
   // can trigger
 
   return (
+
     
     <> 
       <NavBar 
