@@ -6,9 +6,11 @@
 }
 
 .gameListContainer {
-    height: 200px;
-    /* background-color: red; */
-    /* color: purple; */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(510px, 1fr));
+    column-gap: 15px;
+    row-gap: 15px;
+    margin-top: 25px;
 }
 
 .gameCardContainer {
@@ -18,7 +20,6 @@
     height: 380px;
     width: 510px;
     background-color: rgb(186, 156, 119);
-    margin: 10px;
 }
 
 
@@ -44,6 +45,7 @@
 .gameTitle {
     margin-top: 10px;
     margin-bottom: 2px;
+    font-size: 18px;
 }
 
 .gameDescription {

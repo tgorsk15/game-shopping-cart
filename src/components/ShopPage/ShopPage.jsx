@@ -14,7 +14,6 @@ export const ShopPage = () => {
                 Select youre game here
             </section>
             <section className={shopStyles.gameListContainer}>
-                You can shop here
                 {gameData.map((game) => {
                     const releaseDate = game.released.substring(0, 4)
                     return (
