@@ -1,0 +1,6 @@
+.navBarContainer {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    font-size: 22px;
+}

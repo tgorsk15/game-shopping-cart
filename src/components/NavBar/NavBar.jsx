@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import navStyles from './NavBar.module.css'
 
 
 export const NavBar = () => {
@@ -6,10 +7,7 @@ export const NavBar = () => {
 
     return (
         <nav>
-            <div>
-                I am Nav Bar
-            </div>
-            <h3>
+            <div className={navStyles.navBarContainer}>
                 <Link to="home">
                     Home
                 </Link>
@@ -19,7 +17,7 @@ export const NavBar = () => {
                 <Link to="cart">
                     Cart
                 </Link>
-            </h3>
+            </div>
         </nav>
     )
 }
