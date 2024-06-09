@@ -3,9 +3,7 @@ import shopStyles from './ShopPage.module.css'
 
 
 export const ShopPage = () => {
-    const { gameData } = useOutletContext()
-
-    console.log(gameData)
+    const { gameData, shoppingCart, handleCartAdd } = useOutletContext()
 
 
     return (
@@ -16,11 +14,14 @@ export const ShopPage = () => {
             <section className={shopStyles.gameListContainer}>
                 {gameData.map((game) => {
                     const releaseDate = game.released.substring(0, 4)
+
                     return (
                         <div className={shopStyles.gameCardContainer} key={game.id}>
                             <div className={shopStyles.gameCard}>
-                                <div className={shopStyles.gameImage}>
-
+                                <div 
+                                    className={shopStyles.gameImage}
+                                    style={{backgroundImage: `url(${game.background_image})`}}
+                                >
                                 </div>
                                 <div className={shopStyles.gameInfo}>
                                     <div className={shopStyles.gameDescription}>
@@ -45,6 +46,10 @@ export const ShopPage = () => {
                                         <h4 className={shopStyles.priceTag}> $39.99 </h4>
                                         <button
                                             className={shopStyles.addToCartBtn}
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                handleCartAdd(game);
+                                            }}
                                         >
                                             Add to Cart
                                         </button>

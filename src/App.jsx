@@ -17,6 +17,7 @@ const App = () => {
   // Cart amount state will have to be lifted up here, so that item details
   // can be passed to Cart page
   const [gameData, setGameData ] = useState([])
+  const [shoppingCart, setCart] = useState([])
 
   useEffect(() => {
     if (initialData) {
@@ -26,8 +27,18 @@ const App = () => {
   }, [initialData]);
 
   console.log(gameData)
-  console.log(error)
-  console.log(loading)
+
+function handleCartAdd(newGame) {
+  const oldCart = [...shoppingCart]
+  oldCart.push(newGame)
+  console.log(oldCart)
+  setCart(oldCart)
+}
+
+function handleCartDelete(deleteGame) {
+
+}
+
 
   if (error) return <h2>A network error has occured</h2>
 
@@ -38,12 +49,12 @@ const App = () => {
       <NavBar 
       
       />
-      {/* <PageContainer 
-      
-      /> */}
       {loading ? <h1>Loading ...</h1> 
       : (<Outlet context={{
-          gameData
+          gameData,
+          shoppingCart,
+          handleCartAdd,
+          handleCartDelete
         }}/>)}
       
       
