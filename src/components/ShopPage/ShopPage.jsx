@@ -28,10 +28,27 @@ export const ShopPage = () => {
                                         <h4 className={shopStyles.gameTitle}>
                                             {game.name}
                                         </h4>
-                                        <p> {releaseDate}  </p>
+                                        <div className={shopStyles.yearAndGenre}>
+                                            <p> {releaseDate} </p>
+                                            <p> {
+                                                    game.genres.map((genre) => {
+                                                        if (genre.name === "Massively Multiplayer") {
+                                                            return
+                                                        }
+                                                        return genre.name
+                                                    }).join(', ')
+                                                } 
+                                            </p> 
+                                        </div>
+                                        
                                     </div>
                                     <div className={shopStyles.buyContainer}>
-
+                                        <h4 className={shopStyles.priceTag}> $39.99 </h4>
+                                        <button
+                                            className={shopStyles.addToCartBtn}
+                                        >
+                                            Add to Cart
+                                        </button>
                                     </div>
                                 </div>  
                             </div>
