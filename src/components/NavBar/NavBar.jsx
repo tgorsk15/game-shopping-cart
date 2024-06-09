@@ -5,7 +5,7 @@ export const NavBar = () => {
 
 
     return (
-        <>
+        <nav>
             <div>
                 I am Nav Bar
             </div>
@@ -20,6 +20,6 @@ export const NavBar = () => {
                     Cart
                 </Link>
             </h3>
-        </>
+        </nav>
     )
 }

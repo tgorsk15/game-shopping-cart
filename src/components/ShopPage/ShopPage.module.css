@@ -1,0 +1,27 @@
+.gameSelectContainer {
+    height: 100px;
+    width: 100%;
+    background-color: green;
+    color: purple;
+}
+
+.gameListContainer {
+    height: 200px;
+    /* background-color: red; */
+    color: purple;
+}
+
+.gameCardContainer {
+    height: 380px;
+    width: 510px;
+    background-color: rgb(186, 156, 119);
+    margin: 10px;
+}
+
+.gameCard {
+    /* height: ; */
+}
+
+.gameImage {
+
+}
