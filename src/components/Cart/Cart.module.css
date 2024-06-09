@@ -1,0 +1,32 @@
+.cartPage {
+    display: flex;
+    gap: 25px;
+}
+
+.itemsSection {
+    width: 65vw;
+    min-height: 200px;
+    background-color: lightblue;
+}
+
+.itemContainer {
+    width: 52vw;
+    background-color: rgb(169, 178, 181);
+    min-height: 220px;
+}
+
+.gameImage {
+    background-repeat: none;
+    background-size: cover;
+    height: 175px;
+    aspect-ratio: 1.7/1;
+}
+
+
+
+/* checkout section (right side of page: */
+.checkoutSection {
+    width: 30vw;
+    min-height: 200px;
+    background-color: lightgoldenrodyellow;
+}
