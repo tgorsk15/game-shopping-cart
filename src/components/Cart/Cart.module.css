@@ -10,7 +10,10 @@
 }
 
 .itemContainer {
-    width: 52vw;
+    display: flex;
+    justify-content: space-evenly;
+    /* gap: 50px; */
+    width: 58vw;
     background-color: rgb(169, 178, 181);
     min-height: 220px;
 }
@@ -20,6 +23,14 @@
     background-size: cover;
     height: 175px;
     aspect-ratio: 1.7/1;
+}
+
+.itemInfoContainer {
+
+}
+
+.quantityAndDelete {
+    display: flex;
 }
 
 
