@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Routes, Route, Outlet } from 'react-router-dom';
 
 import { ShopPage } from '../ShopPage/ShopPage';
-import { App } from '../../App';
+import App from '../../App';
 
 describe("Shop Page", () => {
     // test to make sure item gets added to cart
@@ -37,8 +37,10 @@ describe("Shop Page", () => {
                 ),
             }
         );
+        screen.debug()
+        console.log(<ShopPage/>)
 
-        const addButton = screen.getAllByRole("button", {name: "Add to Cart"})
+        const addButton = await screen.findByRole("button", {name: "Add to Cart"})
         console.log(addButton)
 
         await user.click(addButton[0]);
