@@ -20,9 +20,9 @@ describe("Shop Page", () => {
         const addButton = screen.getAllByRole("button", {name: "Add to Cart"})
         console.log(addButton)
 
-        await user.click(addButton);
+        await user.click(addButton[0]);
 
-        expect(handleAddItem).toHaveBeenCalled();
+        expect(handleAddItem).toHaveBeenCalled(1);
 
         screen.debug()
     })
