@@ -26,7 +26,7 @@ const App = () => {
     // console.log(gameData)
   }, [initialData]);
 
-  console.log(gameData)
+  // console.log(gameData)
 
 function handleCartAdd(newGame) {
   const oldCart = [...shoppingCart]
