@@ -12,8 +12,6 @@ console.log(shoppingCart)
 // create a test file that ensures the Order Total Calculation 
 // is being done in the right way
 
-// 6/9/24: After I am done building skeleton of Cart, I should write an
-// implementation test that checks if items are added to cart on Shop page
 
     return (
         <main className={cartStyles.cartPage}>
