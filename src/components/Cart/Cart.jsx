@@ -21,14 +21,16 @@ console.log(shoppingCart)
                 <section className={cartStyles.itemsSection}>
                     {shoppingCart.map((item) => {
                         return (
-                            <div className={cartStyles.itemContainer} key={item.id}>
+                            <div className={cartStyles.itemContainer} key={item.id} >
                                 <div 
                                     className={cartStyles.gameImage}
                                     style={{backgroundImage: `url(${item.background_image})`}}
                                 >
                                 </div>
                                 <div className={cartStyles.itemInfoContainer}>
-                                    <h2 className={cartStyles.gameTitle}>{item.name}</h2>
+                                    <h2 className={cartStyles.gameTitle} data-testid={item.name}>
+                                        {item.name}
+                                    </h2>
                                     <div className={cartStyles.quantityAndDelete}>
                                         <form className={cartStyles.quantityControls}>
                                             <label htmlFor="amount">Quantity:</label>

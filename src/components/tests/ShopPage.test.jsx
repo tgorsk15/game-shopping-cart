@@ -10,39 +10,39 @@ import { routes } from '../routes';
 import { useGameData } from '../dataFetch';
 
 // fake data for second test
-const data = [
-    {
-        id: 1, name: 'Game 1',
-        released: '2004',
-        background_image: 'pic',
-        genres: ['Shooter', 'Action']
-    },
-    {
-        id: 2, name: 'Game 2',
-        released: '2005',
-        background_image: 'pic2',
-        genres: ['RPG']
-    },
-]
+// const data = [
+//     {
+//         id: 1, name: 'Game 1',
+//         released: '2004',
+//         background_image: 'pic',
+//         genres: ['Shooter', 'Action']
+//     },
+//     {
+//         id: 2, name: 'Game 2',
+//         released: '2005',
+//         background_image: 'pic2',
+//         genres: ['RPG']
+//     },
+// ]
 
 // Mock the API
 vi.mock('../dataFetch');
 
 describe("Shop Page", () => {
 
-    // beforeAll(() => {
-    //     // Mock the return value of useGameData
-    //     useGameData.mockReturnValue({
-    //         initialData: [{ 
-    //             id: 1, name: 'Game 1',
-    //             released: '2004',
-    //             background_image: 'pic',
-    //             genres: ['Shooter', 'Action'] 
-    //         }],
-    //         error: null,
-    //         loading: false,
-    //     });
-    // });
+    beforeAll(() => {
+        // Mock the return value of useGameData
+        useGameData.mockReturnValue({
+            initialData: [{ 
+                id: 1, name: 'Game 1',
+                released: '2004',
+                background_image: 'pic',
+                genres: ['Shooter', 'Action'] 
+            }],
+            error: null,
+            loading: false,
+        });
+    });
 
     // afterEach(() => {
     //     vi.restoreAllMocks();
@@ -54,19 +54,6 @@ describe("Shop Page", () => {
     
 
     it('addButton exists on render', async () => {
-        
-
-        useGameData.mockReturnValue({
-            initialData: [{ 
-                id: 1, name: 'Game 1',
-                released: '2004',
-                background_image: 'pic',
-                genres: ['Shooter', 'Action'] 
-            }],
-            error: null,
-            loading: false,
-        });
-
 
         render(<RouterProvider router={router} />);
 
@@ -83,35 +70,47 @@ describe("Shop Page", () => {
         //     initialIndex: 1,
         // });
 
-        // vi.mock('react-router-dom', () => ({
-        //     let actual = await vi.importActual('react-router-dom');
+        // vi.mock("react-router-dom", async (importOriginal) => {
+        //     const actual = await importOriginal()
         //     return {
-        //         ...actual,
-        //         useOutletContext: vi.fn(),
-        //     };
-        // }))
+        //         actual, useOutletContext: vi.fn()
+        //     }
+            
+            
+        // })
 
-        const handleAddItem = vi.fn()
+        // const handleAddItem = vi.fn()
 
         const user = userEvent.setup()
         
 
-        const mockContext = {
-            gameData: data,
-            shoppingCart: null,
-            handleCartAdd: handleAddItem
-        }
+        // const mockContext = {
+        //     gameData: data,
+        //     shoppingCart: null,
+        //     handleCartAdd: handleAddItem
+        // }
 
         // gameData={data} handleCartAdd={handleAddItem}
-        useOutletContext.mockReturnValue(mockContext)
-        render(<ShopPage  />)
-        // render(<RouterProvider router={router}/> );
+        // useOutletContext.mockReturnValue(mockContext)
+        // render(<ShopPage  />)
+        render(<RouterProvider router={router}/> );
 
-        const addButton = await screen.findAllByText(/add to cart/i)
+        const addButton = await screen.findByText(/add to cart/i)
 
-        await user.click(addButton[0]);
+        expect(addButton).toBeInTheDocument()
 
-        expect(handleAddItem).toHaveBeenCalled(1);
+        await user.click(addButton);
+
+        screen.debug()
+
+        // const addButton2 = await screen.findByTestId("CartButton")
+        // expect(addButton2).toBeInTheDocument()
+
+        
+
+        const addedItem = await screen.findByTestId("Game 1")
+
+        expect(addedItem).toBeInTheDocument();
 
         screen.debug()
     })
