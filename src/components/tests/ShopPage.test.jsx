@@ -104,8 +104,8 @@ describe("Shop Page", () => {
 
         // gameData={data} handleCartAdd={handleAddItem}
         useOutletContext.mockReturnValue(mockContext)
-        // render(<ShopPage  />)
-        render(<RouterProvider router={router}/> );
+        render(<ShopPage  />)
+        // render(<RouterProvider router={router}/> );
 
         const addButton = await screen.findAllByText(/add to cart/i)
 
