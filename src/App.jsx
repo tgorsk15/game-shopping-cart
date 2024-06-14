@@ -36,7 +36,15 @@ function handleCartAdd(newGame) {
 }
 
 function handleCartDelete(removeGame) {
-
+  const oldCart = [...shoppingCart]
+  console.log(removeGame)
+  oldCart.forEach(game => {
+    const gameIndex = oldCart.indexOf(game)
+    if (game.id === removeGame.id) {
+      oldCart.splice(gameIndex, 1)
+    }
+  })
+  setCart(oldCart)
 }
 
 

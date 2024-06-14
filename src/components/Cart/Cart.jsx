@@ -54,6 +54,7 @@ console.log(shoppingCart)
                                             onClick={(e) => {
                                                 e.preventDefault()
                                                 // trigger delete function here
+                                                handleCartDelete(item)
                                             }}
                                         >
                                             Remove
