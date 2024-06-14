@@ -35,7 +35,7 @@ function handleCartAdd(newGame) {
   setCart(oldCart)
 }
 
-function handleCartDelete(deleteGame) {
+function handleCartDelete(removeGame) {
 
 }
 
