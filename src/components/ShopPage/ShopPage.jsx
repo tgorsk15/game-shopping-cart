@@ -18,9 +18,19 @@ export const ShopPage = () => {
         return gameData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
     }
 
-    const filteredGames = getFilteredGames(query, gameData)
+    let filteredGames = getFilteredGames(query, gameData)
     console.log(filteredGames)
-    console.log(gameData)
+
+    function handleGenreSearch(genreName) {
+        console.log(genreName)
+        const genreFiltered = gameData.filter((game) => 
+            game.genres.some((genre) => {
+                console.log(genre.name)
+                return genre.name.toLowerCase() === genreName.toLowerCase()
+            })
+        )
+        console.log(genreFiltered)
+    }
 
 
     return (
@@ -35,6 +45,23 @@ export const ShopPage = () => {
                         className={shopStyles.searchBar}
                         onChange={(e) => setQuery(e.target.value)}
                     />
+                </div>
+                <div className={shopStyles.genreSelectContainer}>
+                    <label htmlFor="selectGenre">Search by Genre:</label>
+                    <select
+                        onClick={(e) => handleGenreSearch(e.target.value)}
+                    >
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="fighting">Fighting</option>
+                        <option value="indie">Indie</option>
+                        <option value="platformer">Platformer</option>
+                        <option value="puzzle">Puzzle</option>
+                        <option value="racing">Racing</option>
+                        <option value="rpg">RPG</option>
+                        <option value="shooter">Shooter</option>
+                        <option value="sports">Sports</option>
+                    </select>
                 </div>
             </section>
             <section className={shopStyles.gameListContainer}>
