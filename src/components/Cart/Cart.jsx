@@ -38,7 +38,7 @@ export const Cart = () => {
                                                 type="number"
                                                 name="amount"
                                                 className={cartStyles.amountInput}
-                                            />
+                                                placeholder={item.gameQuantity}                                            />
                                             <button 
                                                 className={cartStyles.saveAmount}
                                                 onClick={(e) => {

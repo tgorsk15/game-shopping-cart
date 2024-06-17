@@ -31,9 +31,16 @@ function handleCartAdd(newGame) {
   const oldCart = [...shoppingCart]
   const inCart = checkForRepeat(oldCart, newGame)
   console.log(inCart)
-  oldCart.push(newGame)
-  console.log(oldCart)
-  setCart(oldCart)
+  if (inCart) {
+    newGame.gameQuantity += 1
+    console.log(newGame)
+  } else {
+    newGame.gameQuantity = 1;
+    oldCart.push(newGame)
+    console.log(oldCart)
+    setCart(oldCart)
+  }
+  
 }
 
 function handleCartDelete(removeGame) {
