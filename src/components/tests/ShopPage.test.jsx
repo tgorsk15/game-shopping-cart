@@ -9,21 +9,6 @@ import { ShopPage } from '../ShopPage/ShopPage';
 import { routes } from '../routes';
 import { useGameData } from '../dataFetch';
 
-// fake data for second test
-// const data = [
-//     {
-//         id: 1, name: 'Game 1',
-//         released: '2004',
-//         background_image: 'pic',
-//         genres: ['Shooter', 'Action']
-//     },
-//     {
-//         id: 2, name: 'Game 2',
-//         released: '2005',
-//         background_image: 'pic2',
-//         genres: ['RPG']
-//     },
-// ]
 
 // Mock the API
 vi.mock('../dataFetch');
@@ -65,52 +50,25 @@ describe("Shop Page", () => {
     })
 
     it('item is added to cart on addButton click', async () => {
-        // const router = createMemoryRouter(routes, {
-        //     initialEntries: ['/', '/shop'],
-        //     initialIndex: 1,
-        // });
-
-        // vi.mock("react-router-dom", async (importOriginal) => {
-        //     const actual = await importOriginal()
-        //     return {
-        //         actual, useOutletContext: vi.fn()
-        //     }
-            
-            
-        // })
-
-        // const handleAddItem = vi.fn()
-
         const user = userEvent.setup()
         
-
-        // const mockContext = {
-        //     gameData: data,
-        //     shoppingCart: null,
-        //     handleCartAdd: handleAddItem
-        // }
-
-        // gameData={data} handleCartAdd={handleAddItem}
-        // useOutletContext.mockReturnValue(mockContext)
-        // render(<ShopPage  />)
         render(<RouterProvider router={router}/> );
 
         const addButton = await screen.findByText(/add to cart/i)
-
         expect(addButton).toBeInTheDocument()
 
         await user.click(addButton);
 
         screen.debug()
 
-        // const addButton2 = await screen.findByTestId("CartButton")
-        // expect(addButton2).toBeInTheDocument()
+        // navigate to cart and check if the added game exists there
+        const cartLink = await screen.findByRole('link', { name: /cart/i });
+        expect(cartLink).toBeInTheDocument();
 
-        
-
+        await user.click(cartLink);
         const addedItem = await screen.findByTestId("Game 1")
+        expect(addedItem).toBeInTheDocument()
 
-        expect(addedItem).toBeInTheDocument();
 
         screen.debug()
     })
