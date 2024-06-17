@@ -4,13 +4,13 @@ import { useEffect, useState } from "react"
 
 
 export const ShopPage = () => {
-    const { initialData, shoppingCart, handleCartAdd } = useOutletContext()
+    const { initialData, shoppingCart, handleCartAdd, gamePrice } = useOutletContext()
     const tempData = initialData
 
     const [query, setQuery] = useState('')
     const [activeList, setActiveList] = useState(tempData);
 
-    // let filteredGames;
+    // console.log(gamePrice)
 
     useEffect(() => {
         getFilteredGames(query, initialData)
@@ -116,7 +116,7 @@ export const ShopPage = () => {
                                         
                                     </div>
                                     <div className={shopStyles.buyContainer}>
-                                        <h4 className={shopStyles.priceTag}> $39.99 </h4>
+                                        <h4 className={shopStyles.priceTag}> {gamePrice} </h4>
                                         <button
                                             className={shopStyles.addToCartBtn}
                                             onClick={(e) => {

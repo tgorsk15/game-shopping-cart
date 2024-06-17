@@ -5,12 +5,12 @@ import cartStyles from './Cart.module.css'
 export const Cart = () => {
     // needs to recieve the activeCart state, which points to which 
     // items are in the active cart
-    const { shoppingCart, handleCartDelete } = useOutletContext();
+    const { shoppingCart, handleCartDelete, gamePrice } = useOutletContext();
 
-console.log(shoppingCart)
+    console.log(shoppingCart)
 
-// create a test file that ensures the Order Total Calculation 
-// is being done in the right way
+    // create a test file that ensures the Order Total Calculation 
+    // is being done in the right way
 
 
     return (
@@ -18,6 +18,7 @@ console.log(shoppingCart)
             {shoppingCart.length > 0 ? (
                 <section className={cartStyles.itemsSection}>
                     {shoppingCart.map((item) => {
+                        // let gameQuantity = 1
                         return (
                             <div className={cartStyles.itemContainer} key={item.id} >
                                 <div 
@@ -31,6 +32,7 @@ console.log(shoppingCart)
                                     </h2>
                                     <div className={cartStyles.quantityAndDelete}>
                                         <form className={cartStyles.quantityControls}>
+                                            
                                             <label htmlFor="amount">Quantity:</label>
                                             <input 
                                                 type="number"
@@ -71,9 +73,13 @@ console.log(shoppingCart)
             
             <aside className={cartStyles.checkoutSection}>
                 <h2 className={cartStyles.orderSummary}>Your Order:</h2>
-                <div className={cartStyles.orderContainer}>
-                    {/* will have to set up a totalCost state to
-                    show order details here */}
+                <div className={cartStyles.orderItemsList}>
+                    {shoppingCart.map((item) => {
+                        console.log(item)
+                    })}
+                </div>
+                <div className={cartStyles.costContainer}>
+
                 </div>
             </aside>
         </main>

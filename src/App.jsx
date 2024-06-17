@@ -16,20 +16,21 @@ const App = () => {
 
   // Cart amount state will have to be lifted up here, so that item details
   // can be passed to Cart page
-  const [gameData, setGameData ] = useState([])
+  // const [gameData, setGameData ] = useState([])
   const [shoppingCart, setCart] = useState([])
+  const [gamePrice, setPrice] = useState('$39.99')
 
-  useEffect(() => {
-    if (initialData) {
-      setGameData(initialData);
-    }
-    // console.log(gameData)
-  }, [initialData]);
+  // useEffect(() => {
+  //   if (initialData) {
+  //     setGameData(initialData);
+  //   }
+  // }, [initialData]);
 
-  // console.log(gameData)
 
 function handleCartAdd(newGame) {
   const oldCart = [...shoppingCart]
+  const inCart = checkForRepeat(oldCart, newGame)
+  console.log(inCart)
   oldCart.push(newGame)
   console.log(oldCart)
   setCart(oldCart)
@@ -47,6 +48,15 @@ function handleCartDelete(removeGame) {
   setCart(oldCart)
 }
 
+function checkForRepeat(oldCart, newGame) {
+  for (let i = 0; i < oldCart.length; i++) {
+    if (oldCart[i] === newGame) {
+      return true
+    }
+  }
+  return false
+}
+
 
   if (error) return <h2>A network error has occured</h2>
 
@@ -62,7 +72,8 @@ function handleCartDelete(removeGame) {
           initialData,
           shoppingCart,
           handleCartAdd,
-          handleCartDelete
+          handleCartDelete,
+          gamePrice
         }}/>)}
       
       
