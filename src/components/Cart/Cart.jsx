@@ -1,14 +1,22 @@
 import { useOutletContext } from "react-router-dom"
 import cartStyles from './Cart.module.css'
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 export const Cart = () => {
-    // needs to recieve the activeCart state, which points to which 
-    // items are in the active cart
+    // shoppingCart shows what items the user has added to buy
     const { shoppingCart, setCart, handleCartDelete, gamePrice } = useOutletContext();
 
-    console.log(shoppingCart)
+    const [totalCost, setCost] = useState(0)
+    // let taxAmount = 0;
+    const taxAmount = useRef(0)
+    const shippingCost = 10;
+    const taxRate = .10
+
+    useEffect(() => {
+        const result = getTotalCost(shoppingCart)
+
+    }, [shoppingCart])
 
     // create a test file that ensures the Order Total Calculation 
     // is being done in the right way
@@ -32,8 +40,20 @@ export const Cart = () => {
         }
     }
 
-    function getTotalCost() {
+    function getTotalCost(cart) {
+        let total = 0;
+        for (let i = 0; i <cart.length; i++) {
+            const gameAmount = cart[i].gameQuantity
+            total += (gamePrice * gameAmount)
+        }
+        // tax = total * taxRate
 
+        taxAmount.current = total * taxRate;
+        
+
+        total += taxAmount.current + shippingCost
+        console.log(total)
+        setCost(total)
     }
 
 
@@ -67,14 +87,6 @@ export const Cart = () => {
                                                     handleQuantityChange(e.target.value, item.id)
                                                 }}
                                             />
-                                            {/* <button 
-                                                className={cartStyles.saveAmount}
-                                                onClick={(e) => {
-                                                    e.preventDefault()
-                                                }}
-                                            >
-                                                Save
-                                            </button> */}
                                         </form>
                                         <button
                                             className={cartStyles.removeFromCartBtn}
@@ -105,12 +117,15 @@ export const Cart = () => {
                         {shoppingCart.map((item) => {
                             return (
                             <div className={cartStyles.orderItemsList} key={item.id}>
-                                <h4 className={cartStyles.cartItemName}>
-                                    {item.name} 
-                                </h4>
-                                <h5 className={cartStyles.itemAmount}>
-                                    x{item.gameQuantity}
-                                </h5>
+                                <div className={cartStyles.itemInfo}>
+                                    <h4 className={cartStyles.cartItemName}>
+                                        {item.name} 
+                                    </h4>
+                                    <h5 className={cartStyles.itemAmount}>
+                                        x{item.gameQuantity}
+                                    </h5>   
+                                </div>
+                                
                                 <p className={cartStyles.itemCost}>
                                    $ {item.gameQuantity * gamePrice}
                                 </p>
@@ -119,11 +134,41 @@ export const Cart = () => {
                         })}
                     </div>
                 ) : (
-                   <h3>No tiems</h3>
+                   <h3>No items</h3>
                 )}
                 
                 <div className={cartStyles.costContainer}>
-
+                    {shoppingCart.length > 0 ? (
+                        <div className={cartStyles.shippingAndTaxes}>
+                            <div className={cartStyles.taxInfo}>
+                                <h4 className={cartStyles.taxTitle}>
+                                    Taxes:
+                                </h4>
+                                <p className={cartStyles.taxAmounts}>
+                                    {taxAmount.current}
+                                </p>
+                            </div>
+                            <div className={cartStyles.shippingInfo}>
+                                <h4 className={cartStyles.taxTitle}>
+                                    Shipping:
+                                </h4>
+                                <p className={cartStyles.shippingAmount}>
+                                    {shippingCost}
+                                </p>
+                            </div>
+                            <div className={cartStyles.totalCostInfo}>
+                                <h4 className={cartStyles.totalTitle}>
+                                    Total Cost:
+                                </h4>
+                                <p className={cartStyles.totalAmount}>
+                                    {totalCost}
+                                </p>
+                            </div>
+                            
+                        </div>
+                    ) : (
+                        <h3>No items</h3> 
+                    )}
                 </div>
             </aside>
         </main>

@@ -37,7 +37,35 @@
 
 /* checkout section (right side of page: */
 .checkoutSection {
-    width: 30vw;
+    width: 27vw;
     min-height: 200px;
+    padding: 20px;
     background-color: lightgoldenrodyellow;
+}
+
+
+.orderListContainer {
+    border-bottom: 2px dashed black;
+    padding-bottom: 20px;
+}
+
+.orderItemsList {
+   display: flex;
+    justify-content: space-between; 
+}
+
+.orderItemsList > * {
+    margin: 3px 0px;
+}
+
+.itemInfo > * {
+    margin: 5px 0px;
+}
+
+.itemInfo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    /* background-color: white; */
 }
