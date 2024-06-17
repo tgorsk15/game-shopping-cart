@@ -1,35 +1,54 @@
 import { useOutletContext } from "react-router-dom"
 import shopStyles from './ShopPage.module.css'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export const ShopPage = () => {
-    const { gameData, shoppingCart, handleCartAdd } = useOutletContext()
-
+    const { initialData, shoppingCart, handleCartAdd } = useOutletContext()
+    const tempData = initialData
+    console.log(initialData)
     // need to set up function for when user selects a category of game,
     // a new filtered list of data with the selected genres is
     // shown below on the page
     const [query, setQuery] = useState(null)
+    const [activeList, setActiveList] = useState(tempData);
 
-    const getFilteredGames = (query, gameData) => {
+    let filteredGames;
+
+    // useEffect(() => {
+    //     getFilteredGames(query, initialData)
+    // }, [query, initialData])
+
+    const getFilteredGames = (query, initialData) => {
+
         if (!query) {
-            return gameData
+           setActiveList(initialData)
         }
-        return gameData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
+        const newSearch = initialData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
+        console.log(newSearch)
+        setActiveList(newSearch)
+        return newSearch
     }
 
-    let filteredGames = getFilteredGames(query, gameData)
-    console.log(filteredGames)
+
+    
+    // const filteredGames = getFilteredGames(query, initialData)
+    // console.log(filteredGames)
 
     function handleGenreSearch(genreName) {
         console.log(genreName)
-        const genreFiltered = gameData.filter((game) => 
-            game.genres.some((genre) => {
-                console.log(genre.name)
-                return genre.name.toLowerCase() === genreName.toLowerCase()
-            })
-        )
-        console.log(genreFiltered)
+        if (genreName === 'all') {
+            console.log(initialData)
+            setActiveList(initialData)
+        } else {
+            const genresFiltered = initialData.filter((game) => 
+                game.genres.some((genre) => {
+                    return genre.name.toLowerCase() === genreName.toLowerCase()
+                })
+            )
+            console.log(genresFiltered)
+            setActiveList(genresFiltered)
+        }
     }
 
 
@@ -43,7 +62,14 @@ export const ShopPage = () => {
                         type = "text"
                         name = "searchBar"
                         className={shopStyles.searchBar}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={async (e) => {
+                            // if (activeList !== filteredGames) {
+                            //     setActiveList(filteredGames) 
+                            // }
+                            console.log('searching!')
+                            setQuery(e.target.value)
+                            
+                        }}
                     />
                 </div>
                 <div className={shopStyles.genreSelectContainer}>
@@ -51,6 +77,7 @@ export const ShopPage = () => {
                     <select
                         onClick={(e) => handleGenreSearch(e.target.value)}
                     >
+                        <option value="all">All</option>
                         <option value="action">Action</option>
                         <option value="adventure">Adventure</option>
                         <option value="fighting">Fighting</option>
@@ -65,7 +92,7 @@ export const ShopPage = () => {
                 </div>
             </section>
             <section className={shopStyles.gameListContainer}>
-                {filteredGames.map((game) => {
+                {activeList.map((game) => {
                     const releaseDate = game.released.substring(0, 4)
 
                     return (

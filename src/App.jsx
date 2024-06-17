@@ -59,7 +59,7 @@ function handleCartDelete(removeGame) {
       />
       {loading ? <h1>Loading ...</h1> 
       : (<Outlet context={{
-          gameData,
+          initialData,
           shoppingCart,
           handleCartAdd,
           handleCartDelete
