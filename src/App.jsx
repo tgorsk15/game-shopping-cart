@@ -15,7 +15,7 @@ const App = () => {
 
   // const [gameData, setGameData ] = useState([])
   const [shoppingCart, setCart] = useState([])
-  const [gamePrice, setPrice] = useState('$39.99')
+  const [gamePrice, setPrice] = useState(39.99)
 
   // useEffect(() => {
   //   if (initialData) {

@@ -32,6 +32,10 @@ export const Cart = () => {
         }
     }
 
+    function getTotalCost() {
+
+    }
+
 
     return (
         <main className={cartStyles.cartPage}>
@@ -95,11 +99,29 @@ export const Cart = () => {
             )}
             
             <aside className={cartStyles.checkoutSection}>
-                <h2 className={cartStyles.orderSummary}>Your Order:</h2>
-                <div className={cartStyles.orderItemsList}>
-                    {shoppingCart.map((item) => {
-                    })}
-                </div>
+                <h2 className={cartStyles.orderTitle}>Your Order:</h2>
+                {shoppingCart.length > 0 ? (
+                    <div className={cartStyles.orderListContainer}>
+                        {shoppingCart.map((item) => {
+                            return (
+                            <div className={cartStyles.orderItemsList} key={item.id}>
+                                <h4 className={cartStyles.cartItemName}>
+                                    {item.name} 
+                                </h4>
+                                <h5 className={cartStyles.itemAmount}>
+                                    x{item.gameQuantity}
+                                </h5>
+                                <p className={cartStyles.itemCost}>
+                                   $ {item.gameQuantity * gamePrice}
+                                </p>
+                            </div>
+                            )
+                        })}
+                    </div>
+                ) : (
+                   <h3>No tiems</h3>
+                )}
+                
                 <div className={cartStyles.costContainer}>
 
                 </div>
