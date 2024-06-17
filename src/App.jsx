@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 
 import { NavBar } from './components/NavBar/NavBar';
-import { PageContainer } from './components/PageContainer/PageContainer';
 
 import './App.css'
 
@@ -14,8 +13,6 @@ import { useGameData } from './components/dataFetch';
 const App = () => {
   const { initialData, error, loading } = useGameData();
 
-  // Cart amount state will have to be lifted up here, so that item details
-  // can be passed to Cart page
   // const [gameData, setGameData ] = useState([])
   const [shoppingCart, setCart] = useState([])
   const [gamePrice, setPrice] = useState('$39.99')
@@ -78,6 +75,7 @@ function checkForRepeat(oldCart, newGame) {
       : (<Outlet context={{
           initialData,
           shoppingCart,
+          setCart,
           handleCartAdd,
           handleCartDelete,
           gamePrice

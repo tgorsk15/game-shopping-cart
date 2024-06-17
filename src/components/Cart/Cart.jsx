@@ -1,16 +1,36 @@
 import { useOutletContext } from "react-router-dom"
 import cartStyles from './Cart.module.css'
+import { useState } from "react";
 
 
 export const Cart = () => {
     // needs to recieve the activeCart state, which points to which 
     // items are in the active cart
-    const { shoppingCart, handleCartDelete, gamePrice } = useOutletContext();
+    const { shoppingCart, setCart, handleCartDelete, gamePrice } = useOutletContext();
 
     console.log(shoppingCart)
 
     // create a test file that ensures the Order Total Calculation 
     // is being done in the right way
+    function handleQuantityChange(amount, itemID) {
+        
+        const oldCart = [...shoppingCart]
+        const activeIndex = getActiveIndex(oldCart, itemID)
+        oldCart[activeIndex] = {
+           ...oldCart[activeIndex], ["gameQuantity"]: amount
+        } 
+        console.log(oldCart)
+        setCart(oldCart)
+
+    }
+
+    function getActiveIndex(cart, id) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === id) {
+                return i
+            }
+        }
+    }
 
 
     return (
@@ -18,7 +38,6 @@ export const Cart = () => {
             {shoppingCart.length > 0 ? (
                 <section className={cartStyles.itemsSection}>
                     {shoppingCart.map((item) => {
-                        // let gameQuantity = 1
                         return (
                             <div className={cartStyles.itemContainer} key={item.id} >
                                 <div 
@@ -38,16 +57,20 @@ export const Cart = () => {
                                                 type="number"
                                                 name="amount"
                                                 className={cartStyles.amountInput}
-                                                placeholder={item.gameQuantity}                                            />
-                                            <button 
+                                                value={item.gameQuantity}
+                                                onChange={(e) => {
+                                                    e.preventDefault()
+                                                    handleQuantityChange(e.target.value, item.id)
+                                                }}
+                                            />
+                                            {/* <button 
                                                 className={cartStyles.saveAmount}
                                                 onClick={(e) => {
                                                     e.preventDefault()
-                                                    // trigger cartState change
                                                 }}
                                             >
                                                 Save
-                                            </button>
+                                            </button> */}
                                         </form>
                                         <button
                                             className={cartStyles.removeFromCartBtn}
@@ -75,7 +98,6 @@ export const Cart = () => {
                 <h2 className={cartStyles.orderSummary}>Your Order:</h2>
                 <div className={cartStyles.orderItemsList}>
                     {shoppingCart.map((item) => {
-                        console.log(item)
                     })}
                 </div>
                 <div className={cartStyles.costContainer}>
