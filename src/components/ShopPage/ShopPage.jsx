@@ -6,34 +6,30 @@ import { useEffect, useState } from "react"
 export const ShopPage = () => {
     const { initialData, shoppingCart, handleCartAdd } = useOutletContext()
     const tempData = initialData
-    console.log(initialData)
-    // need to set up function for when user selects a category of game,
-    // a new filtered list of data with the selected genres is
-    // shown below on the page
-    const [query, setQuery] = useState(null)
+
+    const [query, setQuery] = useState('')
     const [activeList, setActiveList] = useState(tempData);
 
-    let filteredGames;
+    // let filteredGames;
 
-    // useEffect(() => {
-    //     getFilteredGames(query, initialData)
-    // }, [query, initialData])
+    useEffect(() => {
+        getFilteredGames(query, initialData)
+    }, [query, initialData])
 
     const getFilteredGames = (query, initialData) => {
-
-        if (!query) {
-           setActiveList(initialData)
+        console.log(query)
+        if (query === '') {
+            setActiveList(initialData)
+        } else {
+            const newSearch = initialData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
+            console.log(newSearch)
+            setActiveList(newSearch)
+            return newSearch
         }
-        const newSearch = initialData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
-        console.log(newSearch)
-        setActiveList(newSearch)
-        return newSearch
+        
     }
 
 
-    
-    // const filteredGames = getFilteredGames(query, initialData)
-    // console.log(filteredGames)
 
     function handleGenreSearch(genreName) {
         console.log(genreName)
@@ -63,9 +59,6 @@ export const ShopPage = () => {
                         name = "searchBar"
                         className={shopStyles.searchBar}
                         onChange={async (e) => {
-                            // if (activeList !== filteredGames) {
-                            //     setActiveList(filteredGames) 
-                            // }
                             console.log('searching!')
                             setQuery(e.target.value)
                             
