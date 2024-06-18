@@ -8,10 +8,9 @@ export const Cart = () => {
     const { shoppingCart, setCart, handleCartDelete, gamePrice } = useOutletContext();
 
     const [totalCost, setCost] = useState(0)
-    // let taxAmount = 0;
     const taxAmount = useRef(0)
     const shippingCost = 10;
-    const taxRate = .10
+    const taxRate = .11
 
     useEffect(() => {
         const result = getTotalCost(shoppingCart)
@@ -46,14 +45,16 @@ export const Cart = () => {
             const gameAmount = cart[i].gameQuantity
             total += (gamePrice * gameAmount)
         }
-        // tax = total * taxRate
-
-        taxAmount.current = total * taxRate;
+        taxAmount.current = roundUpNum(total * taxRate);
+        console.log(taxAmount.current)
         
-
         total += taxAmount.current + shippingCost
-        console.log(total)
+        total = roundUpNum(total)
         setCost(total)
+    }
+
+    function roundUpNum (num) {
+        return parseFloat(num.toFixed(2))
     }
 
 

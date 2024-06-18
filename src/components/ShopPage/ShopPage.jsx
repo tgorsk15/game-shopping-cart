@@ -121,6 +121,8 @@ export const ShopPage = () => {
                                             className={shopStyles.addToCartBtn}
                                             onClick={(e) => {
                                                 e.preventDefault()
+                                                // need to put in proper checks if game
+                                                // has already been added to cart
                                                 handleCartAdd(game);
                                             }}
                                         >

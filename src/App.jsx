@@ -17,12 +17,6 @@ const App = () => {
   const [shoppingCart, setCart] = useState([])
   const [gamePrice, setPrice] = useState(39.99)
 
-  // useEffect(() => {
-  //   if (initialData) {
-  //     setGameData(initialData);
-  //   }
-  // }, [initialData]);
-
 
 function handleCartAdd(newGame) {
   const oldCart = [...shoppingCart]
