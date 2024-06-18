@@ -12,6 +12,7 @@
 .itemContainer {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     /* gap: 50px; */
     width: 58vw;
     background-color: rgb(169, 178, 181);
@@ -23,6 +24,7 @@
     background-size: cover;
     height: 175px;
     aspect-ratio: 1.7/1;
+    border-radius: 25px;
 }
 
 .itemInfoContainer {
@@ -31,6 +33,13 @@
 
 .quantityAndDelete {
     display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.amountInput {
+    max-width: 30px;
+    padding: 3px;
 }
 
 
@@ -47,6 +56,10 @@
 .orderListContainer {
     border-bottom: 2px dashed black;
     padding-bottom: 20px;
+}
+
+.orderTitle{
+    font-size: 30px;
 }
 
 .orderItemsList {
@@ -68,4 +81,33 @@
     align-items: center;
     gap: 15px;
     /* background-color: white; */
+}
+
+.taxInfo, .shippingInfo, .totalCostInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shippingInfo {
+    border-bottom: 2px dashed black;
+    padding-bottom: 12px;
+}
+
+.taxInfo > * {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.shippingInfo > * {
+    margin: 5px 0px;
+}
+
+.totalCostInfo > * {
+    margin: 5px 0px;
+    margin-top: 18px;
+}
+
+.totalTitle, .totalAmount {
+    font-size: 22px;
 }

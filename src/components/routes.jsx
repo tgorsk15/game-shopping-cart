@@ -2,8 +2,6 @@ import App from "../App";
 import { HomePage } from "./HomePage/HomePage";
 import { ShopPage } from "./ShopPage/ShopPage";
 import { Cart } from "./Cart/Cart";
-// import { Children } from "react";
-// import { element } from "prop-types";
 
 
 export const routes = [

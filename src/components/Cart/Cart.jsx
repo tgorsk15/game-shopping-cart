@@ -146,7 +146,7 @@ export const Cart = () => {
                                     Taxes:
                                 </h4>
                                 <p className={cartStyles.taxAmounts}>
-                                    {taxAmount.current}
+                                    $ {taxAmount.current}
                                 </p>
                             </div>
                             <div className={cartStyles.shippingInfo}>
@@ -154,7 +154,7 @@ export const Cart = () => {
                                     Shipping:
                                 </h4>
                                 <p className={cartStyles.shippingAmount}>
-                                    {shippingCost}
+                                    $ {shippingCost}
                                 </p>
                             </div>
                             <div className={cartStyles.totalCostInfo}>
@@ -162,7 +162,7 @@ export const Cart = () => {
                                     Total Cost:
                                 </h4>
                                 <p className={cartStyles.totalAmount}>
-                                    {totalCost}
+                                    $ {totalCost}
                                 </p>
                             </div>
                             
