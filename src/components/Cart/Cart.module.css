@@ -4,6 +4,8 @@
 }
 
 .itemsSection {
+    display: flex;
+    flex-direction: column;
     width: 65vw;
     min-height: 200px;
     background-color: lightblue;
@@ -11,10 +13,11 @@
 
 .itemContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
-    /* gap: 50px; */
-    width: 58vw;
+    gap: 70px;
+    /* width: 58vw; */
+    width: 100%;
     background-color: rgb(169, 178, 181);
     min-height: 220px;
 }
@@ -25,6 +28,7 @@
     height: 175px;
     aspect-ratio: 1.7/1;
     border-radius: 25px;
+    margin-left: 60px;
 }
 
 .itemInfoContainer {
@@ -81,6 +85,12 @@
     align-items: center;
     gap: 15px;
     /* background-color: white; */
+}
+
+.noItemsMessage {
+    border-bottom: 2px dashed black;
+    margin-bottom: 10px;
+    padding-bottom: 22px;
 }
 
 .taxInfo, .shippingInfo, .totalCostInfo {

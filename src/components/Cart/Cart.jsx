@@ -135,7 +135,7 @@ export const Cart = () => {
                         })}
                     </div>
                 ) : (
-                   <h3>No items</h3>
+                   <h3 className={cartStyles.noItemsMessage}>No items</h3>
                 )}
                 
                 <div className={cartStyles.costContainer}>
