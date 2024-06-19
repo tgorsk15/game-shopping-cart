@@ -2,7 +2,7 @@
 .homePage {
     /* min-height: calc(100vh - 75px); */
     width: 100%;
-    background: pink;
+    /* background-color: rgb(203, 193, 231); */
 }
 
 .homeContainer {
@@ -21,6 +21,7 @@
     min-width: 100%;
     min-height: 70vh;
     color: white;
+    box-shadow: 0px 3px 10px 0px black;
 }
 
 .homeSlogan {
@@ -33,14 +34,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px 0px;
-    padding-top: 170px;
+    background-color: rgb(203, 193, 231);
+    padding: 30px 30px;
+    margin-top: 170px;
+    margin-bottom: 130px;
     width: 65vw;
+    border: 3px solid rgb(34, 34, 34);
+    border-radius: 15px;
 }
 
 .bottomTitle {
     font-size:40px;
-    color: white;
+    /* color: white; */
     text-align: center;
     margin-bottom: 8px;
 }
@@ -52,13 +57,15 @@
 
 .shopBtnContainer {
     padding-top: 35px;
-    padding-bottom: 130px;
+    padding-bottom: 20px;
 }
 
 .shopBtn {
     background-color: purple;
-    padding: 8px;
+    padding: 11px;
     text-decoration: none;
     font-size: 24px;
+    font-weight: bold;
     color: white;
+    border-radius: 15px;
 }

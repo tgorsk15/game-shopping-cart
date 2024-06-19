@@ -4,4 +4,11 @@
     gap: 20px;
     font-size: 22px;
     height: 75px;
+    /* background-color: rgb(92, 100, 78); */
+    background-color: rgb(34, 34, 34);
+}
+
+.navBtn {
+    text-decoration: none;
+    color: white;
 }

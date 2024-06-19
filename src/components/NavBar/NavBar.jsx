@@ -8,13 +8,13 @@ export const NavBar = () => {
     return (
         <nav>
             <div className={navStyles.navBarContainer}>
-                <Link to="home">
+                <Link to="home" className={navStyles.navBtn}>
                     Home
                 </Link>
-                <Link to="shop">
+                <Link to="shop" className={navStyles.navBtn}>
                     Shop
                 </Link>
-                <Link to="cart">
+                <Link to="cart" className={navStyles.navBtn}>
                     Cart
                 </Link>
             </div>
