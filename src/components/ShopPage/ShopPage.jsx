@@ -49,11 +49,10 @@ export const ShopPage = () => {
 
 
     return (
-        <main>
+        <main className={shopStyles.shopContainer}>
             <section className={shopStyles.gameSelectContainer}>
-                Select your game here
                 <div className={shopStyles.searchBarContainer}>
-                    <label htmlFor="searchBar">Search:</label>
+                    <label htmlFor="searchBar">Search by Name:</label>
                     <input 
                         type = "text"
                         name = "searchBar"
@@ -68,6 +67,7 @@ export const ShopPage = () => {
                 <div className={shopStyles.genreSelectContainer}>
                     <label htmlFor="selectGenre">Search by Genre:</label>
                     <select
+                        className={shopStyles.genreSelect}
                         onClick={(e) => handleGenreSearch(e.target.value)}
                     >
                         <option value="all">All</option>
@@ -102,7 +102,7 @@ export const ShopPage = () => {
                                             {game.name}
                                         </h4>
                                         <div className={shopStyles.yearAndGenre}>
-                                            <p> {releaseDate} </p>
+                                            <p> {releaseDate} -</p>
                                             <p> {
                                                     game.genres.map((genre) => {
                                                         if (genre.name === "Massively Multiplayer") {
@@ -121,8 +121,6 @@ export const ShopPage = () => {
                                             className={shopStyles.addToCartBtn}
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                // need to put in proper checks if game
-                                                // has already been added to cart
                                                 handleCartAdd(game);
                                             }}
                                         >
