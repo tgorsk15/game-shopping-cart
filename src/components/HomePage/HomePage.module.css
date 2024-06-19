@@ -4,3 +4,18 @@
     width: 100%;
     background: pink;
 }
+
+.topSection {
+    background-image: url(./../../assets/fortnite.jpg);
+    background-repeat: none;
+    background-size: 100%;
+    min-height: 70vh
+}
+
+.homeSlogan {
+    margin: 0px;
+}
+
+.bottomSection {
+    height: 0px;
+}
