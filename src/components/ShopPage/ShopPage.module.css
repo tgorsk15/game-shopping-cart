@@ -149,4 +149,6 @@
 
 .addToCartBtn {
     padding: 8px 15px;
+    background-color: rgb(90, 191, 90);
+    /* border: 1px solid rgb(34, 34, 34); */
 }

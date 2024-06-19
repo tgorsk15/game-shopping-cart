@@ -87,6 +87,12 @@ export const ShopPage = () => {
             <section className={shopStyles.gameListContainer}>
                 {activeList.map((game) => {
                     const releaseDate = game.released.substring(0, 4)
+                    let tempName;
+
+                    if (game.name.length > 32) {
+                        tempName = game.name
+                        tempName = tempName.substring(0, 31) + '...'
+                    }
 
                     return (
                         <div className={shopStyles.gameCardContainer} key={game.id}>
@@ -99,7 +105,7 @@ export const ShopPage = () => {
                                 <div className={shopStyles.gameInfo}>
                                     <div className={shopStyles.gameDescription}>
                                         <h4 className={shopStyles.gameTitle}>
-                                            {game.name}
+                                            {tempName}
                                         </h4>
                                         <div className={shopStyles.yearAndGenre}>
                                             <p> {releaseDate} -</p>
@@ -116,7 +122,7 @@ export const ShopPage = () => {
                                         
                                     </div>
                                     <div className={shopStyles.buyContainer}>
-                                        <h4 className={shopStyles.priceTag}> {gamePrice} </h4>
+                                        <h4 className={shopStyles.priceTag}> ${gamePrice} </h4>
                                         <button
                                             className={shopStyles.addToCartBtn}
                                             onClick={(e) => {
