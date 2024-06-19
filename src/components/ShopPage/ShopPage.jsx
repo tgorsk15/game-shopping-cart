@@ -105,7 +105,7 @@ export const ShopPage = () => {
                                 <div className={shopStyles.gameInfo}>
                                     <div className={shopStyles.gameDescription}>
                                         <h4 className={shopStyles.gameTitle}>
-                                            {tempName}
+                                            {tempName ? tempName : game.name}
                                         </h4>
                                         <div className={shopStyles.yearAndGenre}>
                                             <p> {releaseDate} -</p>
