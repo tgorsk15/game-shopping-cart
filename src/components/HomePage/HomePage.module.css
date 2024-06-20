@@ -36,19 +36,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(203, 193, 231);
+    /* background-color: rgb(203, 193, 231); */
+    background-color: rgb(226, 248, 231);
     padding: 30px 30px;
     margin-top: 170px;
     margin-bottom: 130px;
     width: 65vw;
     border: 3px solid rgb(34, 34, 34);
+    border: 3px solid rgb(90, 191, 90);
     border-radius: 15px;
     box-shadow: 0px 0px 50px 0px rgb(166, 166, 166);
 }
 
 .bottomTitle {
     font-size:40px;
-    /* color: white; */
     text-align: center;
     margin-bottom: 8px;
 }
@@ -64,7 +65,7 @@
 }
 
 .shopBtn {
-    background-color: purple;
+    background-color: rgb(90, 191, 90);
     padding: 11px;
     text-decoration: none;
     font-size: 24px;
