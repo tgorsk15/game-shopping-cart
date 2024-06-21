@@ -15,20 +15,20 @@ const App = () => {
 
   // const [gameData, setGameData ] = useState([])
   const [shoppingCart, setCart] = useState([])
+  const [emptyCart, setEmptyCart] = useState(true)
   const [gamePrice, setPrice] = useState(39.99)
 
 
   function handleCartAdd(newGame) {
     const oldCart = [...shoppingCart]
     const inCart = checkForRepeat(oldCart, newGame)
-    console.log(inCart)
+    // console.log(inCart)
     if (inCart) {
       newGame.gameQuantity += 1
-      console.log(newGame)
     } else {
       newGame.gameQuantity = 1;
       oldCart.push(newGame)
-      console.log(oldCart)
+      changeFromEmpty(oldCart)
       setCart(oldCart)
     }
     
@@ -43,6 +43,7 @@ const App = () => {
         oldCart.splice(gameIndex, 1)
       }
     })
+    checkEmptyCart(oldCart)
     setCart(oldCart)
   }
 
@@ -55,15 +56,26 @@ const App = () => {
     return false
   }
 
+  function checkEmptyCart(currentCart) {
+    if (currentCart.length < 1) {
+      setEmptyCart(true)
+    }
+  }
+
+  function changeFromEmpty(currentCart) {
+    if (currentCart.length === 1) {
+      setEmptyCart(false)
+    }
+  }
+
 
   if (error) return <h2>A network error has occured</h2>
 
   return (
-
     
     <> 
       <NavBar 
-      
+        emptyCart = {emptyCart}
       />
       {loading ? <h1>Loading ...</h1> 
       : (<Outlet context={{
@@ -72,7 +84,8 @@ const App = () => {
           setCart,
           handleCartAdd,
           handleCartDelete,
-          gamePrice
+          gamePrice,
+          emptyCart
         }}/>)}
       
       

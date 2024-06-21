@@ -36,6 +36,10 @@
     font-weight: bold;
 }
 
+/* .cartContainer {
+    
+} */
+
 .cartIcon {
     position: absolute;
     top: -8px;
@@ -46,5 +50,21 @@
 
 .cartIcon:hover {
     transform: scale(1.03);
+}
+
+.cartCounter {
+    position: absolute;
+    top: -28px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(226, 248, 231);
+    width: 1.4rem;
+    height: 1.4rem;
+    color: green;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-align: center;
 }
 

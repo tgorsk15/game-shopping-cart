@@ -17,7 +17,6 @@ export const ShopPage = () => {
     }, [query, initialData])
 
     const getFilteredGames = (query, initialData) => {
-        console.log(query)
         if (query === '') {
             setActiveList(initialData)
         } else {
@@ -34,7 +33,6 @@ export const ShopPage = () => {
     function handleGenreSearch(genreName) {
         console.log(genreName)
         if (genreName === 'all') {
-            console.log(initialData)
             setActiveList(initialData)
         } else {
             const genresFiltered = initialData.filter((game) => 
@@ -58,7 +56,6 @@ export const ShopPage = () => {
                         name = "searchBar"
                         className={shopStyles.searchBar}
                         onChange={async (e) => {
-                            console.log('searching!')
                             setQuery(e.target.value)
                             
                         }}
