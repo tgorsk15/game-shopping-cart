@@ -56,6 +56,22 @@ export const Cart = () => {
         return parseFloat(num.toFixed(2))
     }
 
+    function handleIncrement(amount, itemID) {
+        if (amount < 50) {
+            const newAmount = amount + 1
+            handleQuantityChange(newAmount, itemID)  
+        }
+        
+
+    }
+
+    function handleDecrement(amount, itemID) {
+        if (amount > 0) {
+            const newAmount = amount - 1
+            handleQuantityChange(newAmount, itemID)
+        }
+    }
+
 
     return (
         <main className={cartStyles.cartPage}>
@@ -76,17 +92,38 @@ export const Cart = () => {
                                     <div className={cartStyles.quantityAndDelete}>
                                         <form className={cartStyles.quantityControls}>
                                             
-                                            <label htmlFor="amount">Quantity:</label>
-                                            <input 
-                                                type="number"
-                                                name="amount"
-                                                className={cartStyles.amountInput}
-                                                value={item.gameQuantity}
-                                                onChange={(e) => {
-                                                    e.preventDefault()
-                                                    handleQuantityChange(e.target.value, item.id)
-                                                }}
-                                            />
+                                            {/* <label htmlFor="amount">Quantity:</label> */}
+                                            <div className={cartStyles.quantityContainer}>
+                                                <button 
+                                                    className={cartStyles.decrementBtn}
+                                                    onClick={(e) => {
+                                                        e.preventDefault()
+                                                        handleDecrement(item.gameQuantity, item.id)
+                                                    }}
+                                                >
+                                                    -
+                                                </button>
+                                                <input 
+                                                    type="number"
+                                                    name="amount"
+                                                    className={cartStyles.amountInput}
+                                                    value={item.gameQuantity}
+                                                    onChange={(e) => {
+                                                        e.preventDefault()
+                                                        handleQuantityChange(e.target.value, item.id)
+                                                    }}
+                                                />
+                                                <button 
+                                                    className={cartStyles.incrementBtn}
+                                                    onClick={(e) => {
+                                                        e.preventDefault()
+                                                        handleIncrement(item.gameQuantity, item.id)
+                                                    }}
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
+                                            
                                         </form>
                                         <button
                                             className={cartStyles.removeFromCartBtn}
@@ -95,7 +132,7 @@ export const Cart = () => {
                                                 handleCartDelete(item)
                                             }}
                                         >
-                                            Remove
+                                            X Remove
                                         </button>
                                     </div>
                                 </div>

@@ -1,12 +1,14 @@
 .cartPage {
     display: flex;
-    gap: 25px;
+    justify-content: space-evenly;
+    gap: 45px;
+    margin-top: 70px;
 }
 
 .itemsSection {
     display: flex;
     flex-direction: column;
-    width: 65vw;
+    width: 55vw;
     min-height: 200px;
     background-color: lightblue;
 }
@@ -25,7 +27,8 @@
 .gameImage {
     background-repeat: none;
     background-size: cover;
-    height: 175px;
+    /* height: 175px; */
+    height: 140px;
     aspect-ratio: 1.7/1;
     border-radius: 25px;
     margin-left: 60px;
@@ -44,15 +47,34 @@
 .amountInput {
     max-width: 30px;
     padding: 3px;
+
 }
+
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.removeFromCartBtn {
+    background: none;
+    border: none;
+    color: rgb(173, 61, 61);
+    font-weight: bold;
+}
+
+.removeFromCartBtn:hover {
+    /* background-color: beige; */
+    opacity: 0.8;
+} 
 
 
 
 /* checkout section (right side of page: */
 .checkoutSection {
-    width: 27vw;
+    width: 25vw;
     min-height: 200px;
-    padding: 20px;
+    padding: 20px 30px;
     background-color: lightgoldenrodyellow;
 }
 
@@ -63,16 +85,17 @@
 }
 
 .orderTitle{
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .orderItemsList {
-   display: flex;
+    display: flex;
     justify-content: space-between; 
 }
 
 .orderItemsList > * {
     margin: 3px 0px;
+    font-size: 20px;
 }
 
 .itemInfo > * {
@@ -97,6 +120,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 20px;
 }
 
 .shippingInfo {
@@ -119,5 +143,38 @@
 }
 
 .totalTitle, .totalAmount {
-    font-size: 22px;
+    font-size: 26px;
+}
+
+
+@media (max-width: 1825px) {
+    .orderItemsList > * {
+        font-size: 17px;
+    }
+
+    .taxInfo, .shippingInfo, .totalCostInfo {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 1645px) {
+    .cartPage {
+        gap: 20px;
+    }
+
+    .gameTitle {
+        font-size: 20px;
+    }
+
+    .checkoutSection {
+        width: 27vw;
+    }
+
+    .orderItemsList > * {
+        font-size: 15px;
+    }
+
+    .taxInfo, .shippingInfo, .totalCostInfo {
+        font-size: 15px;
+    }
 }
