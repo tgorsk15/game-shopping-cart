@@ -75,6 +75,7 @@ export const Cart = () => {
 
     return (
         <main className={cartStyles.cartPage}>
+            hi
             {shoppingCart.length > 0 ? (
                 <section className={cartStyles.itemsSection}>
                     {shoppingCart.map((item) => {

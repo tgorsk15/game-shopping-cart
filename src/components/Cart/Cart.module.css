@@ -1,16 +1,24 @@
 .cartPage {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 45px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px 1fr;
+    justify-items: center;
+    column-gap: 45px;
     margin-top: 70px;
+    padding: 0px 40px;
 }
 
 .itemsSection {
+    grid-column: 1;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
+    gap: 40px;
     width: 55vw;
     min-height: 200px;
-    background-color: lightblue;
+    background-color: rgb(226, 248, 231);
+    padding: 25px 5px;
+    border-radius: 20px;
 }
 
 .itemContainer {
@@ -20,8 +28,6 @@
     gap: 70px;
     /* width: 58vw; */
     width: 100%;
-    background-color: rgb(169, 178, 181);
-    min-height: 220px;
 }
 
 .gameImage {
@@ -70,7 +76,8 @@
 }
 
 .incrementBtn:hover {
-    background-color: rgb(196, 246, 208);
+    /* background-color: rgb(196, 246, 208); */
+    background-color: rgb(90, 191, 90);
 }
 
 .decrementBtn:hover {
@@ -93,10 +100,14 @@
 
 /* checkout section (right side of page: */
 .checkoutSection {
+    grid-column: 2;
+    grid-row: 2;
     width: 25vw;
     min-height: 200px;
     padding: 20px 30px;
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(233, 233, 233);
+    border-radius: 20px;
+    border: 3px solid rgb(90, 191, 90);
 }
 
 
@@ -180,7 +191,7 @@
 
 @media (max-width: 1645px) {
     .cartPage {
-        gap: 20px;
+        column-gap: 20px;
     }
 
     .gameTitle {
