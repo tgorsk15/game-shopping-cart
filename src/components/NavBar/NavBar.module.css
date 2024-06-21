@@ -28,6 +28,7 @@
 }
 
 .navCartBtn {
+    position: relative;
     text-decoration: none;
     color: white;
     position: absolute;
@@ -36,6 +37,14 @@
 }
 
 .cartIcon {
-    margin-bottom: 10px;
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    margin-bottom: 20px;
+    transition: all ease-in-out 200ms;
+}
+
+.cartIcon:hover {
+    transform: scale(1.03);
 }
 
