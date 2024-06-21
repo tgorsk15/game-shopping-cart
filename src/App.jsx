@@ -76,6 +76,7 @@ const App = () => {
     <> 
       <NavBar 
         emptyCart = {emptyCart}
+        shoppingCart = {shoppingCart}
       />
       {loading ? <h1>Loading ...</h1> 
       : (<Outlet context={{
