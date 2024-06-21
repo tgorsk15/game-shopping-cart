@@ -52,11 +52,9 @@ const App = () => {
   }
 
   function getNumItems(cart) {
-    console.log(cart)
     let itemTotal = 0;
     for (let i = 0; i < cart.length; i++) {
         const gameAmount = cart[i].gameQuantity
-        console.log(gameAmount)
         itemTotal += gameAmount
     }
     console.log(itemTotal)

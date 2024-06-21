@@ -43,7 +43,7 @@ export const Cart = () => {
         let total = 0;
         for (let i = 0; i < cart.length; i++) {
             const gameAmount = cart[i].gameQuantity
-            total += (gamePrice * gameAmount)
+            total += gamePrice * gameAmount
         }
         taxAmount.current = roundUpNum(total * taxRate);
         
@@ -126,7 +126,7 @@ export const Cart = () => {
                                 </div>
                                 
                                 <p className={cartStyles.itemCost}>
-                                   $ {item.gameQuantity * gamePrice}
+                                   $ {roundUpNum(item.gameQuantity * gamePrice)}
                                 </p>
                             </div>
                             )
