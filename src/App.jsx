@@ -17,6 +17,7 @@ const App = () => {
   const [shoppingCart, setCart] = useState([])
   const [emptyCart, setEmptyCart] = useState(true)
   const [gamePrice, setPrice] = useState(39.99)
+  const [gameAmount, setGameAmount] = useState(0)
 
 
   function handleCartAdd(newGame) {
@@ -25,11 +26,13 @@ const App = () => {
     // console.log(inCart)
     if (inCart) {
       newGame.gameQuantity += 1
+      getNumItems(oldCart)
     } else {
       newGame.gameQuantity = 1;
       oldCart.push(newGame)
       changeFromEmpty(oldCart)
       setCart(oldCart)
+      getNumItems(oldCart)
     }
     
   }
@@ -45,7 +48,18 @@ const App = () => {
     })
     checkEmptyCart(oldCart)
     setCart(oldCart)
+    getNumItems(oldCart)
   }
+
+  function getNumItems(cart) {
+    let itemTotal = 0;
+    for (let i = 0; i < cart.length; i++) {
+        const gameAmount = cart[i].gameQuantity
+        console.log(gameAmount)
+        itemTotal += gameAmount
+    }
+    setGameAmount(itemTotal)
+}
 
   function checkForRepeat(oldCart, newGame) {
     for (let i = 0; i < oldCart.length; i++) {
@@ -77,6 +91,7 @@ const App = () => {
       <NavBar 
         emptyCart = {emptyCart}
         shoppingCart = {shoppingCart}
+        gameAmount = {gameAmount}
       />
       {loading ? <h1>Loading ...</h1> 
       : (<Outlet context={{
