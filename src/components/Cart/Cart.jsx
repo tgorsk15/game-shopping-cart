@@ -91,17 +91,15 @@ export const Cart = () => {
                                     </h2>
                                     <div className={cartStyles.quantityAndDelete}>
                                         <form className={cartStyles.quantityControls}>
-                                            
-                                            {/* <label htmlFor="amount">Quantity:</label> */}
                                             <div className={cartStyles.quantityContainer}>
                                                 <button 
-                                                    className={cartStyles.decrementBtn}
+                                                    className={cartStyles.incrementBtn}
                                                     onClick={(e) => {
                                                         e.preventDefault()
-                                                        handleDecrement(item.gameQuantity, item.id)
+                                                        handleIncrement(item.gameQuantity, item.id)
                                                     }}
                                                 >
-                                                    -
+                                                    +
                                                 </button>
                                                 <input 
                                                     type="number"
@@ -114,13 +112,13 @@ export const Cart = () => {
                                                     }}
                                                 />
                                                 <button 
-                                                    className={cartStyles.incrementBtn}
+                                                    className={cartStyles.decrementBtn}
                                                     onClick={(e) => {
                                                         e.preventDefault()
-                                                        handleIncrement(item.gameQuantity, item.id)
+                                                        handleDecrement(item.gameQuantity, item.id)
                                                     }}
                                                 >
-                                                    +
+                                                    -
                                                 </button>
                                             </div>
                                             
