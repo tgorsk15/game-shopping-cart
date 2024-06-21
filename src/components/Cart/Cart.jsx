@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const Cart = () => {
     // shoppingCart shows what items the user has added to buy
-    const { shoppingCart, setCart, handleCartDelete, gamePrice } = useOutletContext();
+    const { shoppingCart, setCart, handleCartDelete, gamePrice, getNumItems } = useOutletContext();
 
     const [totalCost, setCost] = useState(0)
     const taxAmount = useRef(0)
@@ -20,15 +20,15 @@ export const Cart = () => {
     // create a test file that ensures the Order Total Calculation 
     // is being done in the right way
     function handleQuantityChange(amount, itemID) {
-        
+        const numAmount = Number(amount)
         const oldCart = [...shoppingCart]
         const activeIndex = getActiveIndex(oldCart, itemID)
         oldCart[activeIndex] = {
-           ...oldCart[activeIndex], ["gameQuantity"]: amount
+           ...oldCart[activeIndex], ["gameQuantity"]: numAmount
         } 
         console.log(oldCart)
         setCart(oldCart)
-
+        getNumItems(oldCart)
     }
 
     function getActiveIndex(cart, id) {
@@ -41,12 +41,11 @@ export const Cart = () => {
 
     function getTotalCost(cart) {
         let total = 0;
-        for (let i = 0; i <cart.length; i++) {
+        for (let i = 0; i < cart.length; i++) {
             const gameAmount = cart[i].gameQuantity
             total += (gamePrice * gameAmount)
         }
         taxAmount.current = roundUpNum(total * taxRate);
-        console.log(taxAmount.current)
         
         total += taxAmount.current + shippingCost
         total = roundUpNum(total)
@@ -93,7 +92,6 @@ export const Cart = () => {
                                             className={cartStyles.removeFromCartBtn}
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                // trigger delete function here
                                                 handleCartDelete(item)
                                             }}
                                         >
