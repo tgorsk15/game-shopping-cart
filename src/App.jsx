@@ -99,7 +99,8 @@ const App = () => {
           handleCartAdd,
           handleCartDelete,
           gamePrice,
-          getNumItems
+          getNumItems,
+          gameAmount
         }}/>)}
       
       

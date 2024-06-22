@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const Cart = () => {
     // shoppingCart shows what items the user has added to buy
-    const { shoppingCart, setCart, handleCartDelete, gamePrice, getNumItems } = useOutletContext();
+    const { shoppingCart, setCart, handleCartDelete, gamePrice, getNumItems, gameAmount } = useOutletContext();
 
     const [totalCost, setCost] = useState(0)
     const taxAmount = useRef(0)
@@ -156,7 +156,7 @@ export const Cart = () => {
             
             <aside className={cartStyles.checkoutSection}>
                 <h2 className={cartStyles.orderTitle}>Your Order:</h2>
-                {shoppingCart.length > 0 ? (
+                {shoppingCart.length > 0 && gameAmount !== 0 ? (
                     <div className={cartStyles.orderListContainer}>
                         {shoppingCart.map((item) => {
                             return (
@@ -182,7 +182,7 @@ export const Cart = () => {
                 )}
                 
                 <div className={cartStyles.costContainer}>
-                    {shoppingCart.length > 0 ? (
+                    {shoppingCart.length > 0 && gameAmount !== 0 ? (
                         <div className={cartStyles.shippingAndTaxes}>
                             <div className={cartStyles.taxInfo}>
                                 <h4 className={cartStyles.taxTitle}>

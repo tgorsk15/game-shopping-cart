@@ -35,6 +35,10 @@
     border: none;
 }
 
+.searchBar {
+    padding: 6px;
+}
+
 @media (max-width: 1135px) {
     .gameSelectContainer {
         display: flex;
