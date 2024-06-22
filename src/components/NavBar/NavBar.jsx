@@ -8,22 +8,6 @@ import { useEffect, useState } from "react"
 
 
 export const NavBar = ({ emptyCart, shoppingCart, gameAmount }) => {
-    // const [cartItemsNum, setNumItems] = useState(0);
-
-    // useEffect(() => {
-    //     getNumItems(shoppingCart)
-    // }, [gameAmount])
-
-    // function getNumItems(cart) {
-    //     let itemTotal = 0;
-    //     for (let i = 0; i < cart.length; i++) {
-    //         const gameAmount = cart[i].gameQuantity
-    //         console.log(gameAmount)
-    //         itemTotal += gameAmount
-    //     }
-    //     setNumItems(itemTotal)
-    // }
-    // getNumItems()
 
     return (
         <nav>

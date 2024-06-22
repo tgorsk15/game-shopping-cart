@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, Link } from "react-router-dom"
 import cartStyles from './Cart.module.css'
 import { useEffect, useRef, useState } from "react";
 
@@ -26,7 +26,6 @@ export const Cart = () => {
         oldCart[activeIndex] = {
            ...oldCart[activeIndex], ["gameQuantity"]: numAmount
         } 
-        console.log(oldCart)
         setCart(oldCart)
         getNumItems(oldCart)
     }
@@ -75,7 +74,17 @@ export const Cart = () => {
 
     return (
         <main className={cartStyles.cartPage}>
-            hi
+            <div className={cartStyles.backBtnContainer}>
+                <Link to="./../shop" className={cartStyles.backBtnLink}>
+                    <svg className={cartStyles.backArrow} width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <polygon points="11.62 3.81 7.43 8 11.62 12.19 10.09 13.71 4.38 8 10.09 2.29 11.62 3.81"/>
+                    </svg>
+                    <h2 className={cartStyles.backBtnTitle}>
+                        Back to Shopping
+                    </h2>
+                </Link>
+                
+            </div>
             {shoppingCart.length > 0 ? (
                 <section className={cartStyles.itemsSection}>
                     {shoppingCart.map((item) => {
@@ -142,7 +151,7 @@ export const Cart = () => {
                     }
                 </section>
             ) : (
-                <h1> You have no items in your cart currently</h1>
+                <h1 className={cartStyles.noCartMessage}> You have no items in your cart currently</h1>
             )}
             
             <aside className={cartStyles.checkoutSection}>

@@ -5,16 +5,34 @@
     justify-items: center;
     column-gap: 45px;
     margin-top: 70px;
-    padding: 0px 40px;
+    padding: 0px 65px;
 }
 
+/* header */
+.backBtnContainer {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: start;
+}
+
+.backBtnLink {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* itemsSection */
 .itemsSection {
     grid-column: 1;
     grid-row: 2;
+    justify-self: stretch;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 55vw;
+    /* width: 55vw; */
     min-height: 200px;
     background-color: rgb(226, 248, 231);
     padding: 25px 5px;
@@ -95,6 +113,13 @@
     /* background-color: beige; */
     opacity: 0.8;
 } 
+
+/* No cart message */
+.noCartMessage {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 45px;
+}
 
 
 
