@@ -208,6 +208,9 @@ export const Cart = () => {
                                     $ {totalCost}
                                 </p>
                             </div>
+                            <button className={cartStyles.checkoutBtn}>
+                                Checkout
+                            </button>
                             
                         </div>
                     ) : (

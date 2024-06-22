@@ -90,7 +90,6 @@
     background: none;
     transition: all ease-in-out 200ms;
     margin: 4px;
-    /* border: 2px solid black */
 }
 
 .incrementBtn:hover {
@@ -110,7 +109,6 @@
 }
 
 .removeFromCartBtn:hover {
-    /* background-color: beige; */
     opacity: 0.8;
 } 
 
@@ -127,6 +125,7 @@
 .checkoutSection {
     grid-column: 2;
     grid-row: 2;
+    align-self: start;
     width: 25vw;
     min-height: 200px;
     padding: 20px 30px;
@@ -164,7 +163,6 @@
     justify-content: start;
     align-items: center;
     gap: 15px;
-    /* background-color: white; */
 }
 
 .noItemsMessage {
@@ -201,6 +199,22 @@
 
 .totalTitle, .totalAmount {
     font-size: 26px;
+}
+
+.checkoutBtn {
+    margin: 25px 0px;
+    background-color: rgb(90, 191, 90);
+    color: white;
+    font-size: 22px;
+    transition: all ease-out 200ms;
+}
+
+.checkoutBtn:hover {
+    background-color: rgb(128, 188, 128);
+}
+
+.checkoutBtn:active {
+    transform: translateY(-6px);
 }
 
 
