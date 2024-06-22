@@ -1,10 +1,27 @@
+import { useEffect, useRef } from 'react'
 import homeStyles from './HomePage.module.css'
 
 import { Link } from "react-router-dom"
 
 export const HomePage = () => {
+    const shopRef = useRef(null)
 
+    useEffect(() => {
+        function scrollToTop() {
+            window.scrollTo(0, 0)
+        }
 
+        const shopLink = shopRef.current;
+        if (shopLink) {
+            shopLink.addEventListener('click', scrollToTop);
+        }
+
+        return () => {
+            if (shopLink) {
+              shopLink.removeEventListener('click', scrollToTop);
+            }
+        };
+    }, [])
 
     return (
         <main className={homeStyles.homePage}>
@@ -28,6 +45,7 @@ export const HomePage = () => {
                         <Link 
                             to="../shop" 
                             className={homeStyles.shopBtn}
+                            ref={shopRef}
                         >
                             Start Shopping
                         </Link>

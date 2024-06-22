@@ -23,7 +23,6 @@ const App = () => {
   function handleCartAdd(newGame) {
     const oldCart = [...shoppingCart]
     const inCart = checkForRepeat(oldCart, newGame)
-    // console.log(inCart)
     if (inCart) {
       newGame.gameQuantity += 1
       getNumItems(oldCart)
