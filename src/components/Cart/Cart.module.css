@@ -29,13 +29,12 @@
     grid-column: 1;
     grid-row: 2;
     justify-self: stretch;
+    align-self: start;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    /* width: 55vw; */
-    min-height: 200px;
     background-color: rgb(226, 248, 231);
-    padding: 25px 5px;
+    padding: 45px 5px;
     border-radius: 20px;
     box-shadow: 3px 3px 10px 0px rgb(200, 200, 200);
 }
@@ -45,7 +44,6 @@
     justify-content: start;
     align-items: center;
     gap: 70px;
-    /* width: 58vw; */
     width: 100%;
 }
 

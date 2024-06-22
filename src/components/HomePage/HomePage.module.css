@@ -1,3 +1,8 @@
+@font-face {
+    font-family: berkaFont;
+    src: url(./../../assets/BerkaLight-9YGyn.otf);
+}
+
 
 .homePage {
     /* min-height: calc(100vh - 75px); */
@@ -27,8 +32,9 @@
 
 .homeSlogan {
     margin: 0px;
-    font-size: 60px;
-    text-shadow: 0px 0px 25px black;
+    font-family: berkaFont;
+    font-size: 90px;
+    text-shadow: 0px 0px 32px black;
 }
 
 .bottomSection {

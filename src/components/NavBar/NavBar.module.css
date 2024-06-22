@@ -22,6 +22,8 @@
     padding-left: 25px;
     /* background-color: rgb(92, 100, 78); */
     background-color: rgb(34, 34, 34);
+    font-family: "Kanit", sans-serif;
+    font-weight: 700;
 }
 
 .siteTitle {
