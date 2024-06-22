@@ -1,5 +1,11 @@
+.navBar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
 .navBarContainer {
-    position: relative;
+    /* position: relative; */
     top: 0;
     display: flex;
     justify-content: start;

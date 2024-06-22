@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 export const NavBar = ({ emptyCart, shoppingCart, gameAmount }) => {
 
     return (
-        <nav>
+        <nav className={navStyles.navBar}>
             <div className={navStyles.navBarContainer}>
                 <h1 className={navStyles.siteTitle}>
                     Nameee
