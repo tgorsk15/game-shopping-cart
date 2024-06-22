@@ -10,8 +10,6 @@ export const ShopPage = () => {
     const [query, setQuery] = useState('')
     const [activeList, setActiveList] = useState(tempData);
 
-    // console.log(gamePrice)
-
     useEffect(() => {
         getFilteredGames(query, initialData)
     }, [query, initialData])
@@ -21,7 +19,6 @@ export const ShopPage = () => {
             setActiveList(initialData)
         } else {
             const newSearch = initialData.filter((game) => game.name.toLowerCase().includes(query.toLowerCase()))
-            console.log(newSearch)
             setActiveList(newSearch)
             return newSearch
         }
@@ -39,7 +36,6 @@ export const ShopPage = () => {
                     return genre.name.toLowerCase() === genreName.toLowerCase()
                 })
             )
-            console.log(genresFiltered)
             setActiveList(genresFiltered)
         }
     }

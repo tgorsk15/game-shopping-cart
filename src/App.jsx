@@ -38,7 +38,6 @@ const App = () => {
 
   function handleCartDelete(removeGame) {
     const oldCart = [...shoppingCart]
-    console.log(removeGame)
     oldCart.forEach(game => {
       const gameIndex = oldCart.indexOf(game)
       if (game.id === removeGame.id) {

@@ -17,8 +17,7 @@ export const Cart = () => {
 
     }, [shoppingCart])
 
-    // create a test file that ensures the Order Total Calculation 
-    // is being done in the right way
+    
     function handleQuantityChange(amount, itemID) {
         const numAmount = Number(amount)
         const oldCart = [...shoppingCart]
