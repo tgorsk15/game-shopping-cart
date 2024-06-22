@@ -139,6 +139,13 @@
 }
 
 /* buy Container stylings */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 .buyContainer {
     display: flex;
     flex-direction: column;
@@ -151,8 +158,21 @@
 }
 
 .addToCartBtn {
+    position: relative;
     padding: 8px 15px;
     background-color: rgb(90, 191, 90);
     font-weight: bold;
     color: white;
+    overflow: hidden;
+    transition: all ease-out 200ms;
+    will-change: transform;
+}
+
+.addToCartBtn:hover {
+    background-color: rgb(131, 200, 131);
+}
+
+
+.addToCartBtn:active {
+    transform: scale(0.9);
 }

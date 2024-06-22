@@ -89,7 +89,6 @@ const App = () => {
     <> 
       <NavBar 
         emptyCart = {emptyCart}
-        shoppingCart = {shoppingCart}
         gameAmount = {gameAmount}
       />
       {loading ? <h1>Loading ...</h1> 

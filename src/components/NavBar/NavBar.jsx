@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom"
 import navStyles from './NavBar.module.css'
-import { useEffect, useState } from "react"
-
-// import React from "react";
-// import { ReactComponent as CartSvg } from './../../assets/cart.svg'
-// import { CartIcon } from './../../assets/cart.svg'
 
 
-export const NavBar = ({ emptyCart, shoppingCart, gameAmount }) => {
+export const NavBar = ({ emptyCart, gameAmount }) => {
 
     return (
         <nav className={navStyles.navBar}>
             <div className={navStyles.navBarContainer}>
                 <h1 className={navStyles.siteTitle}>
-                    Nameee
+                    GamerSquare
                 </h1>
                 <div className={navStyles.linksContainer}>
                     <Link to="home" className={navStyles.navBtn}>

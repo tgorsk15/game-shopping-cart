@@ -29,7 +29,6 @@ export const ShopPage = () => {
     }
 
 
-
     function handleGenreSearch(genreName) {
         console.log(genreName)
         if (genreName === 'all') {
