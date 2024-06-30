@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './components/routes';
 
+// import 'dotenv/config'
+
 
 const router = createBrowserRouter(routes)
 

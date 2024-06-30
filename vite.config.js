@@ -13,4 +13,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/components/tests/setup.js',
   },
+  // define:{
+  //   'process.env': {}
+  // }
 })

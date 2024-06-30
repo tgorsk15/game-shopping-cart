@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
-import PropTypes from 'prop-types';
+
 
 export const useGameData = () => {
     const [initialData, setInitialData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
+
+    const apiKey = import.meta.env.VITE_API_KEY
 
     function handleMergeData(gameData, gameData2) {
         const mergedData = gameData.concat(gameData2)
@@ -13,8 +15,9 @@ export const useGameData = () => {
     }
 
     useEffect(() => {
-        const url = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a';
-        const url2 = 'https://api.rawg.io/api/games?key=f07b838fb5eb4376b7727a3e0f12ee7a&page=2';      
+        
+        const url = `https://api.rawg.io/api/games?key=${apiKey}`;
+        const url2 = `https://api.rawg.io/api/games?key=${apiKey}&page=2`;      
         
 
         const fetchData = async () => {
